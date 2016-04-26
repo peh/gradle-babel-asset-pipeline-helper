@@ -13,6 +13,9 @@ var config
 
 if(configLocation) {
     config = require(configLocation)
+    if(typeof config === 'function') {
+        config = config(entry, outName, listenPort);
+    }
 } else {
     config = buildConfig(entry, outName, listenPort);
 }
