@@ -40,14 +40,17 @@ function buildConfig(entry, output) {
         },
         module: {
             loaders: [{
-                test: /\.(js|jsx|es6)?$/,
+                test: /\.jsx|\.js|\.es6?$/,
                 exclude: /(node_modules|vendor)/,
                 loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react']
             }]
         },
         plugins: [
-            new requireErrorHandlerPlugin.RequireEnsureErrorHandlerPlugin(),
-            new requireErrorHandlerPlugin.AMDRequireErrorHandlerPlugin()
-        ]
+        new requireErrorHandlerPlugin.RequireEnsureErrorHandlerPlugin(),
+        new requireErrorHandlerPlugin.AMDRequireErrorHandlerPlugin()
+        ],
+        resolve: {
+            extensions: ["", ".webpack.js", ".web.js", ".js", ".jsx", ".es6"]
+        }
     };
 };
