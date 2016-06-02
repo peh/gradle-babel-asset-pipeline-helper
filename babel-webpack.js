@@ -11,12 +11,16 @@ var configLocation = scriptArgs.config;
 var config;
 
 if (configLocation) {
-    config = require(configLocation)
-    if(typeof config === 'function') {
-        config = config(entry, output);
-    }
+  configLocation = path.join(__dirname, "..", "..", configLocation);
+  var external = require(configLocation);
+  console.log("using external webpack config from " + configLocation);
+  if (typeof  external == 'function') {
+    config = external(entry, outname)
+  } else {
+    config = external;
+  }
 } else {
-    config = buildConfig(entry, output);
+  config = buildConfig(entry, outname);
 }
 
 config.bail = true;
