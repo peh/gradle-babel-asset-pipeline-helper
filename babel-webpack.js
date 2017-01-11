@@ -15,12 +15,12 @@ if (configLocation) {
   var external = require(configLocation);
   console.log("using external webpack config from " + configLocation);
   if (typeof  external == 'function') {
-    config = external(entry, outname)
+    config = external(entry, output)
   } else {
     config = external;
   }
 } else {
-  config = buildConfig(entry, outname);
+  config = buildConfig(entry, output);
 }
 
 config.bail = true;
