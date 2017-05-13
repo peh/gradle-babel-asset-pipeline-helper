@@ -1,6 +1,6 @@
 {
   "name": "gradle-babel-asset-pipeline-helper",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "helper scripts for the babel-asset-pipeline gradle plugin",
   "main": "index.js",
   "scripts": {
